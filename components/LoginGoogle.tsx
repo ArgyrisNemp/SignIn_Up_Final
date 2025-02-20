@@ -1,27 +1,27 @@
 "use client";
-
+import {signInWithGoogle} from "@/actions/auth";
 import React, { useTransition } from "react";
-import { FaGithub } from "react-icons/fa";
+import { FaGoogle } from "react-icons/fa";
 
-const LoginGithub = () => {
+const LoginGoogle = () => {
   const [isPending, startTransition] = useTransition();
 
-  const handleGithubLogin = () => {
+  const handleGoogleLogin = () => {
     startTransition(async () => {
-      // await signInWithGithub();
+       await signInWithGoogle();
     });
   };
   return (
     <div
-      onClick={handleGithubLogin}
+      onClick={handleGoogleLogin}
       className="w-full gap-4 hover:cursor-pointer mt-6 h-12 bg-gray-800 rounded-md p-4 flex justify-center items-center"
     >
-      <FaGithub className="text-white" />
+      <FaGoogle className="text-white" />
       <p className="text-white">
-        {isPending ? "Redirecting..." : "Login with Github"}
+        {isPending ? "Redirecting..." : "Login with Google"}
       </p>
     </div>
   );
 };
 
-export default LoginGithub;
+export default LoginGoogle;

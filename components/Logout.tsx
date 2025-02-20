@@ -1,13 +1,13 @@
 "use client";
 import React, { useState } from "react";
-
+import {signOut} from "@/actions/auth";
 const Logout = () => {
   const [loading, setLoading] = useState(false);
 
   const handleLogout = async (event: React.FormEvent) => {
     event.preventDefault();
     setLoading(true);
-
+    await signOut();
     setLoading(false);
   };
 
